@@ -1,0 +1,4 @@
+TODO:
+- .precommit
+- Makefile
+- Linters
