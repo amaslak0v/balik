@@ -5,5 +5,9 @@ run:
 
 local-build:
 	docker build . -t balik-test
-	
+
+deploy:
+	npm run build
+	firebase deploy
+
 
