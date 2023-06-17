@@ -1,7 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import { Marker } from 'react-map-gl';
 
 function RestaurantMarker({ restaurant, onClick }) {
+  const restaurantName = restaurant.name;
+
   return (
     <Marker
       longitude={restaurant.location._long}
@@ -21,7 +23,7 @@ function RestaurantMarker({ restaurant, onClick }) {
           cursor: 'pointer',
         }}
       >
-        📍
+        📍 {restaurantName}
       </div>
     </Marker>
   );
