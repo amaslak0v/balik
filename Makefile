@@ -9,5 +9,3 @@ local-build:
 deploy:
 	npm run build
 	firebase deploy
-
-

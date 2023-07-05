@@ -4,19 +4,28 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { keyframes } from "@emotion/react";
 import { styled } from "@mui/system";
 
-const glowingAnimation = keyframes`
-  0% { box-shadow: 0 0 5px #3be8f5, 2px 2px 10px ##3be8f5, -2px -2px 10px #3be8f5; }
-  50% { box-shadow: 0 0 20px #3be8f5, 2px 2px 15px #3be8f5, -2px -2px 15px #3be8f5; }
-  100% { box-shadow: 0 0 5px #3be8f5, 2px 2px 10px #3be8f5, -2px -2px 10px #3be8f5; }
-`;
+const StyledAvatar = styled(Avatar)(({ theme }) => ({
+  width: theme.spacing(3),
+  height: theme.spacing(3),
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.getContrastText(theme.palette.primary.main),
+}));
 
-const GlowingAvatar = styled(Avatar)(({ theme }) => ({
-  animation: `${glowingAnimation} 3s infinite`,
-  backgroundColor: "rgba(255,255,255,0.1)",
-  backdropFilter: "blur(4px)",
+const StyledBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  cursor: 'pointer',
+}));
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  maxWidth: '100px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  textAlign: 'center',
 }));
 
 function RestaurantMarker({ restaurant, onClick }) {
@@ -27,15 +36,13 @@ function RestaurantMarker({ restaurant, onClick }) {
   } = restaurant;
 
   return (
-    <Marker longitude={_long} latitude={_lat} anchor="center">
-      <Box onClick={onClick} sx={{ cursor: "pointer", textAlign: "center" }}>
+    <Marker longitude={_long} latitude={_lat} anchor="bottom">
+      <StyledBox onClick={onClick}>
         <Tooltip title={name} arrow>
-          <GlowingAvatar alt={name}>{marker}</GlowingAvatar>
+          <StyledAvatar alt={name}>{marker}</StyledAvatar>
         </Tooltip>
-        <Typography variant="caption" align="center">
-          {name}
-        </Typography>
-      </Box>
+        <StyledTypography variant="caption">{name}</StyledTypography>
+      </StyledBox>
     </Marker>
   );
 }
