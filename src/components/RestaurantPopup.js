@@ -1,44 +1,82 @@
-import * as React from "react";
+import React from 'react';
+import {
+  Dialog,
+  IconButton,
+  Slide,
+  Box,
+  Typography,
+  Chip,
+  AppBar,
+  Toolbar,
+  Button
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import Carousel from 'react-material-ui-carousel'; // Please install this package
 
-function RestaurantDetails({ restaurant, onClose }) {
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+const RestaurantDetails = ({ restaurant, onClose }) => {
   if (!restaurant) {
     return null;
   }
 
   return (
-    <div className="w-1/2 p-4 overflow-auto bg-white rounded-lg shadow-md">
-      <img
-        className="w-full h-64 object-cover rounded-t-lg mb-4"
-        src={restaurant.image}
-        alt={restaurant.name}
-      />
-      <div className="mb-4">
-        <h2 className="text-2xl font-semibold mb-2">{restaurant.name}</h2>
-        <p className="mb-2">{restaurant.description}</p>
-        {restaurant.tags &&
-          restaurant.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-            >
-              #{tag}
-            </span>
+    <Dialog
+      fullScreen
+      open={Boolean(restaurant)}
+      onClose={onClose}
+      TransitionComponent={Transition}
+      PaperProps={{
+        style: {
+          maxHeight: "80vh",
+          maxWidth: "50vh",
+          overflow: "auto",
+          borderTopLeftRadius: 22,
+          borderTopRightRadius: 22,
+        },
+      }}
+    >
+      <AppBar position="relative" color="transparent" elevation={0}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography variant="h6" sx={{ ml: 2, flex: 1 }}>
+            {restaurant.name}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box sx={{ padding: "2rem", backgroundColor: "#f5f5f5" }}>
+        <Carousel>
+          {restaurant.images.map((image, i) => (
+            <img
+              key={i}
+              src={image}
+              alt={`${restaurant.name} ${i}`}
+              style={{ width: "100%", height: "30vh", objectFit: "fill" }}
+            />
           ))}
-        <a
-          href={restaurant.google_map_link}
-          className="text-blue-500 hover:underline"
+        </Carousel>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          {restaurant.description}
+        </Typography>
+        <Box
+          sx={{ display: "flex", flexWrap: "wrap", gap: "1rem", mb: "1rem" }}
         >
-          View on Google Maps
-        </a>
-      </div>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={onClose}
-      >
-        Close
-      </button>
-    </div>
+        </Box>
+        <Button variant="outlined" href={restaurant.google_map} target="_blank" style={{ color: "#3f51b5", marginBottom: '1rem' }}>
+          Go to Google Maps
+        </Button>
+      </Box>
+    </Dialog>
   );
-}
+};
 
 export default RestaurantDetails;

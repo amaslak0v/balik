@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, query } from 'firebase/firestore/lite';
+import restaurantsData from './restaurants.json';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA1VvYEECOlvpdKOeNa8RBr1y_YXl532WY",
@@ -15,17 +16,23 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 
 export const getRestaurantsQuery = async () => {
-  const restaurantsCollection = query(collection(db, "restaurants"))
-  const querySnapshot = await getDocs(restaurantsCollection);
+
+  // Here we are simulating a delay, as if we were waiting for data to be fetched from a server
+  await new Promise(resolve => setTimeout(resolve, 200));
+  return restaurantsData.restaurants;
+
+  // MOCKING FIREBASE, TO USE LOCAL restaurants.json
+  // const restaurantsCollection = query(collection(db, "restaurants"))
+  // const querySnapshot = await getDocs(restaurantsCollection);
   
-  // Initialize an array to hold the documents
-  let documents = [];
+  // // Initialize an array to hold the documents
+  // let documents = [];
 
-  querySnapshot.forEach((doc) => {
-    // Push each document into the array
-    documents.push(doc.data());
-  });
+  // querySnapshot.forEach((doc) => {
+  //   // Push each document into the array
+  //   documents.push(doc.data());
+  // });
 
-  // Return the array of documents
-  return documents;
+  // // Return the array of documents
+  // return documents;
 }

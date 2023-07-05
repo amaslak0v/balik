@@ -42,8 +42,12 @@ function RestaurantMap() {
     });
   }, []);
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div style={{ padding: '12px', backgroundColor: 'white' }}>
+    <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
       <RestaurantPopup
         restaurant={selectedRestaurant}
         onClose={() => setSelectedRestaurant(null)}

@@ -1,14 +1,18 @@
 {
   "restaurants": [
     {
+      "id": "",
       "name": "",
       "description": "",
-      "image": "",
-      "google_map_link": "",
+      "images": "",
+      "marker_icon": "",
+      "deal": "",
+      "google_map": "",
       "location": {
         "_lat": -8.638942,
         "_long": 115.151248
-      }
+      },
+      "tags": ""
     },
     {
       "description": "heartwarming coworking and cafe",
