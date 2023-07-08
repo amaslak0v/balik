@@ -1,0 +1,112 @@
+{
+  "restaurants": [
+    {
+      "id": "0",
+      "name": "PUCO Rooftop",
+      "description": "A heartwarming coworking and cafe experience",
+      "images": [
+        "https://storage.googleapis.com/balik-storage/restaurant-img/r0.jpeg",
+        "https://storage.googleapis.com/balik-storage/restaurant-img/r0.jpeg"
+      ],
+      "marker": "👩‍💻",
+      "googleMapUrl": "https://goo.gl/maps/wrR3nXZXaEfiQWyA7",
+      "address": "Gg. Pratama No.1A, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "location": {
+        "latitude": -8.638942,
+        "longitude": 115.151248
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 0",
+          "description": "Special offer on selected menu items",
+          "shortDescription": "Discounted menu items",
+          "photoUrl": "https://example.com/deal0.jpg",
+          "price": "$10",
+          "tags": ["discount", "lunch"],
+          "marker": "💰"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Clear Cafe",
+      "description": "A nice and cozy place",
+      "images": [
+        "https://www.google.com/maps/place/Clear+Cafe/@-8.6522568,115.1301312,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOApZZT3BaJpSIxFFajzszhJZ_2Tn4PHHzG8RrC!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOApZZT3BaJpSIxFFajzszhJZ_2Tn4PHHzG8RrC%3Dw203-h152-k-no!7i4000!8i3000!4m7!3m6!1s0x2dd2391848d825e3:0xbb0b3827731dd4dd!8m2!3d-8.6522568!4d115.1301312!10e5!16s%2Fg%2F11g4jh6hdz?entry=ttu"
+      ],
+      "marker": "💎",
+      "googleMapUrl": "https://goo.gl/maps/b4ij3XGVrd5s3jGu5",
+      "location": {
+        "latitude": -8.652007541592033,
+        "longitude": 115.13008828471821
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "20% off on breakfast menu",
+          "shortDescription": "Breakfast discount",
+          "photoUrl": "https://example.com/deal1.jpg",
+          "price": "$8",
+          "tags": ["discount", "breakfast"],
+          "marker": "🍳"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Machinery Perenan",
+      "description": "Creative brews, inviting ambiance, exceptional experience. A must-visit for coffee aficionados!",
+      "images": [
+        "https://storage.googleapis.com/balik-storage/restaurant-img/machinery.png"
+      ],
+      "marker": "🕹️",
+      "googleMapUrl": "https://goo.gl/maps/jwnnY6i55LrjVq5t7",
+      "location": {
+        "latitude": -8.64346524289738,
+        "longitude": 115.12596325454206
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "Buy 1 get 1 free on all coffee beverages",
+          "shortDescription": "Coffee offer",
+          "photoUrl": "https://example.com/deal2.jpg",
+          "price": "$5",
+          "tags": ["discount", "coffee"],
+          "marker": "☕"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Cantina Classe by Wonderspace",
+      "description": "A Canggu-based Italian restaurant with wonderful old-style architecture that looks like a classic stone oven",
+      "images": [
+        "https://storage.googleapis.com/balik-storage/restaurant-img/cantina/1.png",
+        "https://storage.googleapis.com/balik-storage/restaurant-img/cantina/2.png",
+        "https://storage.googleapis.com/balik-storage/restaurant-img/cantina/3.png"
+      ],
+      "marker": "🍕",
+      "googleMapUrl": "https://goo.gl/maps/usQgft9fW3JnqDxX8",
+      "location": {
+        "latitude": -8.640246864627024,
+        "longitude": 115.14063032516447
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "Pizza and drink combo for $15",
+          "shortDescription": "Pizza combo",
+          "photoUrl": "https://example.com/deal3.jpg",
+          "price": "$15",
+          "tags": ["discount", "pizza"],
+          "marker": "🍕"
+        }
+      ]
+    }
+  ]
+}

@@ -1,32 +1,47 @@
 import React from 'react';
-import { Dialog, IconButton, Slide, Box, Typography, Button } from '@mui/material';
+import { Dialog, IconButton, Slide, Box, Typography, Button, Fade } from '@mui/material';
 import { styled } from "@mui/system";
 import CloseIcon from '@mui/icons-material/Close';
 import Carousel from 'react-material-ui-carousel';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Fade in={true} ref={ref} {...props} />;
 });
 
 const StyledDialog = styled(Dialog)`
   .MuiDialog-paper {
-    max-height: 80vh;
-    max-width: 90vw;
+    width: auto;
     overflow: auto;
-    borderTopLeftRadius: 22px;
-    borderTopRightRadius: 22px;
+    borderRadius: 22px;
     backgroundColor: #f5f5f5;
     position: relative;
+    border: 1px solid #000;
+    box-shadow: none;
+    margin: auto;
   }
   .MuiIconButton-root {
     position: absolute;
     right: 10px;
     top: 10px;
+    color: #000;
+    padding: 5px;
+    &:hover {
+      backgroundColor: rgba(0, 0, 0, 0.1);
+    }
   }
   .MuiButton-root {
     color: #3f51b5;
     border-color: #3f51b5;
   }
+`;
+
+const StyledBox = styled(Box)`
+  padding: 2rem;
+  border-top: 1px solid black; // Black divider line - thicker
+`;
+
+const StyledCarousel = styled(Carousel)`
+  border-bottom: 2px solid black;
 `;
 
 const RestaurantDetails = ({ restaurant, onClose }) => {
@@ -36,7 +51,6 @@ const RestaurantDetails = ({ restaurant, onClose }) => {
 
   return (
     <StyledDialog
-      fullScreen
       open={Boolean(restaurant)}
       onClose={onClose}
       TransitionComponent={Transition}
@@ -49,17 +63,23 @@ const RestaurantDetails = ({ restaurant, onClose }) => {
       >
         <CloseIcon />
       </IconButton>
-      <Carousel>
+      <StyledCarousel>
         {restaurant.images.map((image, i) => (
           <img
             key={i}
             src={image}
             alt={`${restaurant.name} ${i}`}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ 
+              display: "block", 
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "100%",
+              objectFit: "contain"
+             }}
           />
         ))}
-      </Carousel>
-      <Box sx={{ padding: "2rem" }}>
+      </StyledCarousel>
+      <StyledBox>
         <Typography variant="h6" gutterBottom>
           {restaurant.name}
         </Typography>
@@ -69,7 +89,7 @@ const RestaurantDetails = ({ restaurant, onClose }) => {
         <Button variant="outlined" href={restaurant.google_map} target="_blank" fullWidth>
           Go to Google Maps
         </Button>
-      </Box>
+      </StyledBox>
     </StyledDialog>
   );
 };

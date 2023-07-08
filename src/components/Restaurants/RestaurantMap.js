@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Map from 'react-map-gl';
 import RestaurantMarker from './RestaurantMarker';
-import { getRestaurantsQuery } from '../services/Firebase';
+import { getRestaurantsQuery } from '../../services/Firebase';
 import RestaurantPopup from './RestaurantPopup'; // Import the RestaurantDetails component
 
 const DEFAULT_VIEW_STATE = {

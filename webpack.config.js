@@ -16,10 +16,19 @@ module.exports = {
     publicPath: "/",
   },
 
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+  },
+
   devtool: "source-map",
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader', 
+        exclude: [/node_modules/],
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader", "postcss-loader"],

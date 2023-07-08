@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantMap from './components/RestaurantMap';
+import DealMap from './components/Deals/DealMap';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -11,19 +11,16 @@ const theme = createTheme({
   },
 });
 
-
-// Import the global styles for your app
 import './styles/App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <RestaurantMap />
+        <DealMap />
       </ThemeProvider>
     </div>
   );
 }
 
 export default App;
-
