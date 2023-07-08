@@ -23,7 +23,7 @@ export interface Location {
     address: string;
     location: Location;
     tags: string[];
-    deals: Deal[];
+    deal: Deal[];
   }
   
   export interface RestaurantData {

@@ -76,7 +76,7 @@ const DealMap: React.FC = () => {
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       >
         {restaurants?.map((restaurant) =>
-          restaurant.deals?.map((deal, index) => (
+          restaurant.deal?.map((deal, index) => (
             <DealMarker
               key={index}
               deal={deal}
