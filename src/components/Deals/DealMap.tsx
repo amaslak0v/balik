@@ -1,26 +1,11 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Map from "react-map-gl";
 import dataProvider from "../../data/mainDataProvider";
 import { Restaurant, Deal } from "../../data/dataModels"; 
 import DealMarker from "./DealMarker";
 
-interface ViewState {
-  latitude: number;
-  longitude: number;
-  zoom: number;
-  width?: string;
-  height?: string;
-}
 
-const DEFAULT_VIEW_STATE: ViewState = {
-  latitude: -8.638077718909088,
-  longitude: 115.14939358574861,
-  zoom: 12,
-  width: "600px",
-  height: "600px",
-};
-
-// Custom hook for fetching restaurant data
+// Custom hook to fetch restaurant data from the data provider
 const useFetchRestaurants = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [error, setError] = useState<any>(null);
@@ -40,51 +25,73 @@ const useFetchRestaurants = () => {
   return { restaurants, error };
 };
 
+// A component to render all the deal markers for a restaurant
+const RestaurantDealMarkers: React.FC<{ restaurant: Restaurant; onClick: (deal: Deal) => void; }> = ({ restaurant, onClick }) => {
+  return (
+    <>
+      {restaurant.deal?.map((deal, index) => (
+        <DealMarker
+          key={index}
+          deal={deal}
+          location={restaurant.location}
+          onClick={() => onClick(deal)}
+        />
+      ))}
+    </>
+  );
+};
+
+const initialViewState = {
+      latitude: -8.638077718909088,
+      longitude: 115.14939358574861,
+      zoom: 14,
+      width: "100%",
+      height: "100vh",
+    }
+
 const DealMap: React.FC = () => {
-  const [viewState, setViewState] = useState<ViewState>(DEFAULT_VIEW_STATE);
-  const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null);
+  const [settings, setSettings] = useState({
+    scrollZoom: true,
+    boxZoom: true,
+    dragRotate: true,
+    dragPan: true,
+    keyboard: true,
+    doubleClickZoom: true,
+    touchZoomRotate: true,
+    touchPitch: true,
+    minZoom: 0,
+    maxZoom: 20,
+    minPitch: 0,
+    maxPitch: 85
+  });
 
   const { restaurants, error } = useFetchRestaurants();
 
-  const mapRef = useRef<Map>(null); // Update your ref type to be Map from "react-map-gl"
-
   const handleMarkerClick = useCallback((deal: Deal, restaurant: Restaurant) => {
-    setSelectedDeal(deal);
-    const map = mapRef.current?.getMap(); 
-    if (map) {
-      map.flyTo({
-        latitude: restaurant.location.latitude,
-        longitude: restaurant.location.longitude,
-        zoom: 15,
-        duration: 2000,
-      });
-    }
+    // handle marker click here
+    // setSelectedDeal(deal); // example of what you might do
   }, []);
+
 
   if (error) {
     return <div>Error: {error.message}</div>; // Display the error message
   }
 
   return (
-    <div style={{ display: "flex", width: "100%", height: "100vh" }}>
+    <div style={{ width: "100%", height: "100vh" }}>
       <Map
-        {...viewState}
-        onMove={(evt) => setViewState(evt.viewState)}
-        ref={mapRef}
-        style={{ flex: 1 }}
+        initialViewState={initialViewState}
+        {...settings}
         mapStyle="mapbox://styles/amaslakov/clhxcf2am007a01qshqt7bmpx"
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       >
-        {restaurants?.map((restaurant) =>
-          restaurant.deal?.map((deal, index) => (
-            <DealMarker
-              key={index}
-              deal={deal}
-              location={restaurant.location}
-              onClick={() => handleMarkerClick(deal, restaurant)}
-            />
-          )),
-        )}
+        {restaurants?.map((restaurant) => (
+          <RestaurantDealMarkers
+            key={restaurant.id}
+            restaurant={restaurant}
+            onClick={(deal) => handleMarkerClick(deal, restaurant)}
+          />
+        ))}
       </Map>
     </div>
   );
