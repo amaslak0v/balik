@@ -3,12 +3,14 @@ import Map from "react-map-gl";
 import dataProvider from "../../data/mainDataProvider";
 import { Restaurant, Deal } from "../../data/dataModels"; 
 import DealMarker from "./DealMarker";
+import DealPopup from "./DealPopup";
 
 
 // Custom hook to fetch restaurant data from the data provider
 const useFetchRestaurants = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [error, setError] = useState<any>(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,18 +67,17 @@ const DealMap: React.FC = () => {
     maxPitch: 85
   });
 
+  const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null);
   const { restaurants, error } = useFetchRestaurants();
 
   const handleMarkerClick = useCallback((deal: Deal, restaurant: Restaurant) => {
-    // handle marker click here
-    // setSelectedDeal(deal); // example of what you might do
+    setSelectedDeal(deal);
   }, []);
 
 
   if (error) {
     return <div>Error: {error.message}</div>; // Display the error message
   }
-
   return (
     <div style={{ width: "100%", height: "100vh" }}>
       <Map
@@ -93,6 +94,9 @@ const DealMap: React.FC = () => {
           />
         ))}
       </Map>
+      {selectedDeal && (
+        <DealPopup deal={selectedDeal} onClose={() => setSelectedDeal(null)} />
+      )}
     </div>
   );
 };
