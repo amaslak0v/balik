@@ -1,0 +1,109 @@
+{
+  "restaurants": [
+    {
+      "id": "0",
+      "name": "PUCO Rooftop",
+      "description": "A heartwarming coworking and cafe experience",
+      "images": [
+        "https://lh3.googleusercontent.com/p/AF1QipNPSkLcG4kGvoGfFAEK28L_dLBtEWVCHZRouTJY=s680-w680-h510"
+      ],
+      "marker": "👩‍💻",
+      "googleMapUrl": "https://goo.gl/maps/wrR3nXZXaEfiQWyA7",
+      "address": "Gg. Pratama No.1A, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "location": {
+        "latitude": -8.638942,
+        "longitude": 115.151248
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 0",
+          "description": "Special offer on selected menu items",
+          "shortDescription": "Discounted items",
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn4jwwC_q7aM1-w6GtufSMqzXR4q43t3Xg7A&s",
+          "price": "$10",
+          "tags": ["discount", "lunch"],
+          "marker": "💰"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Clear Cafe",
+      "description": "A nice and cozy place",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvc4sTdhRh_WAdiTSmNlKzAnZ-hyRRlXVWesE92Qxom4_f7mMX85GewjuijF7Emth3hJ4&usqp=CAU"
+      ],
+      "marker": "💎",
+      "googleMapUrl": "https://goo.gl/maps/b4ij3XGVrd5s3jGu5",
+      "location": {
+        "latitude": -8.652007541592033,
+        "longitude": 115.13008828471821
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "20% off on breakfast menu",
+          "shortDescription": "Breakfast discount",
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn4jwwC_q7aM1-w6GtufSMqzXR4q43t3Xg7A&s",
+          "price": "$8",
+          "tags": ["discount", "breakfast"],
+          "marker": "🍳"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Machinery Perenan",
+      "description": "Creative brews, inviting ambiance, exceptional experience. A must-visit for coffee aficionados!",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGOl2HD-DLeQOc4oyC3pqYKcSAJxQcXqdFBQ&s"
+      ],
+      "marker": "🕹️",
+      "googleMapUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YoYfb4BH35yxln8H-oh5mR4eWSY4ZXvsgA&s",
+      "location": {
+        "latitude": -8.64346524289738,
+        "longitude": 115.12596325454206
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "Buy 1 get 1 free on all coffee beverages",
+          "shortDescription": "Coffee offer",
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn4jwwC_q7aM1-w6GtufSMqzXR4q43t3Xg7A&s",
+          "price": "$5",
+          "tags": ["discount", "coffee"],
+          "marker": "☕"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Cantina Classe by Wonderspace",
+      "description": "A Canggu-based Italian restaurant with wonderful old-style architecture that looks like a classic stone oven",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwFFWQPelaClW6briiq1nZz1bHsXYoNXmS_g&s"
+      ],
+      "marker": "🍕",
+      "googleMapUrl": "https://goo.gl/maps/usQgft9fW3JnqDxX8",
+      "location": {
+        "latitude": -8.640246864627024,
+        "longitude": 115.14063032516447
+      },
+      "tags": ["tag1", "tag2"],
+      "deal": [
+        {
+          "name": "Deal 1",
+          "description": "Pizza and drink combo for $15",
+          "shortDescription": "Pizza combo",
+          "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn4jwwC_q7aM1-w6GtufSMqzXR4q43t3Xg7A&s",
+          "price": "$15",
+          "tags": ["discount", "pizza"],
+          "marker": "🍕"
+        }
+      ]
+    }
+  ]
+}
