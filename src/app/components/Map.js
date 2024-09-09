@@ -1,9 +1,7 @@
 'use client'
 
 import React, { useEffect, useState, useRef } from 'react';
-import restaurantData from '../assets/ restaurant.json';
 import mapboxgl from 'mapbox-gl';
-import RestaurantCard from '../restaurantCard/RestaurantCard';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSelector} from 'react-redux';
 import { setSelectedRestaurant, setMapInstance } from '../../store/slices/mapSlice.js';
@@ -11,9 +9,8 @@ import { setSelectedRestaurant, setMapInstance } from '../../store/slices/mapSli
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXZlbmR1bSIsImEiOiJjbHp6aHBkNjExZ21xMmtwZ25naWR2YTBhIn0.G1J-yLq_atEuOH51EJJ9ug';
 
-export default function MapComponent({dispatch}) {
+export default function MapComponent({dispatch, currentRestaurantArray }) {
     const mapContainerRef = useRef(null);
-    const selectedRestaurant = useSelector((state) => state.mapData.selectedRestaurant)
 
     useEffect(() => {
         const mapInstance = new mapboxgl.Map({
@@ -25,7 +22,7 @@ export default function MapComponent({dispatch}) {
             maxZoom: 16,
         });
 
-        restaurantData.restaurants.forEach((restaurant) => {
+        currentRestaurantArray.forEach((restaurant) => {
             const markerElement = document.createElement('div');
             markerElement.innerHTML = restaurant.marker;
             markerElement.style.fontSize = '24px';
