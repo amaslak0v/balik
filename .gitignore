@@ -15,6 +15,7 @@ build/
 *.swp
 .DS_Store
 .next/
+out/
 
 # Cache and temporary files
 .cache/
