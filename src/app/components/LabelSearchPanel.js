@@ -19,7 +19,7 @@ export default function LabelSearchPanel({dispatch}){
         const isSelected = selectedSearchLabels.includes(label);
 
         return(
-        <div onClick={handleLabelSelect} data-label={label} className={`p-2 m-3 text-sm rounded-full w-auto h-auto shadow-md cursor-pointer text-nowrap transition-colors duration-300 ease-in-out ${isSelected ? 'bg-gray-400 text-white' : 'bg-gray-100 hover:bg-gray-300'}`}>
+        <div onClick={handleLabelSelect} data-label={label} className={`p-2 m-3 text-sm rounded-full w-auto h-auto shadow-md cursor-pointer text-nowrap opacity-90 transition-colors duration-300 ease-in-out ${isSelected ? 'bg-gray-400 text-white' : 'bg-gray-100 hover:bg-gray-300'}`}>
             {label}
         </div>);
 
