@@ -8,7 +8,7 @@ export default function LabelSearchPanel({dispatch}){
 
     const cuisineLabelList = [...new Set(restaurantData.restaurants.map(restaurant => restaurant.cuisine).flat())];
 
-    const selectedSearchLabels = useSelector((state) => state.searchData.selectedLabels)
+    const selectedSearchLabels = useSelector((state) => state.searchData.selectedSearchLabels)
 
     function handleLabelSelect(e){
         const label = e.target.getAttribute("data-label");

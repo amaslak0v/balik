@@ -9,7 +9,7 @@ import {useEffect} from 'react';
 
 export default function RestaurantsPanel({dispatch, selectedRestaurantId}){
 
-    const selectedSearchLabels = useSelector((state) => state.searchData.selectedLabels)
+    const selectedSearchLabels = useSelector((state) => state.searchData.selectedSearchLabels)
     const searchFilterOn = useSelector((state) => state.searchData.searchFilterOn)
 
     let restaurantArray = restaurantData.restaurants.filter((restaurant) => restaurant.id !== selectedRestaurantId);

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  selectedLabels: [],
+  selectedSearchLabels: [],
   searchFilterOn: false,
 };
 
@@ -13,10 +13,10 @@ const searchSlice = createSlice({
 
         const label = action.payload;
 
-        if (state.selectedLabels.includes(label)) {
-          state.selectedLabels = state.selectedLabels.filter(item => item !== label);
+        if (state.selectedSearchLabels.includes(label)) {
+          state.selectedSearchLabels = state.selectedSearchLabels.filter(item => item !== label);
         } else {
-          state.selectedLabels.push(label);
+          state.selectedSearchLabels.push(label);
         }
       },
     setSearchFilterOn: (state) => {
