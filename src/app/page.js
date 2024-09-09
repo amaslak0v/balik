@@ -15,8 +15,9 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const selectedRestaurantId = useSelector((state) => state.mapData.selectedRestaurant)
+  const selectedSearchLabels = useSelector((state) => state.searchData.selectedLabels)
 
-  console.log('in page', selectedRestaurantId)
+  console.log('in page', selectedRestaurantId, selectedSearchLabels)
 
   function handleClose(event){
     dispatch(setSelectedRestaurant(null));
