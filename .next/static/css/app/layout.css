@@ -629,6 +629,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-10 {
+  top: 2.5rem;
+}
 .top-28 {
   top: 7rem;
 }
@@ -836,6 +839,9 @@ video {
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+.bg-transparent {
+  background-color: transparent;
 }
 .bg-white {
   --tw-bg-opacity: 1;
