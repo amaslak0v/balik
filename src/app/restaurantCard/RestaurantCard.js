@@ -31,8 +31,8 @@ export default function RestaurantCard({restaurant, dispatch}){
                 <div className="ml-5 grid grid-rows-2 grid-cols-[4fr_1fr]">
                     <div className="col-span-1 row-span-1 text-sm font-medium mt-1 text-nowrap">{restaurant.name}</div>
                     <div className="col-span-1 row-span-1"></div>
-                    <div className="col-span-2 row-span-1">
-                        {restaurant.deal[0].tags.map(tag => {return(<DealTag key={tag} tag={tag}/>)})}
+                    <div className="col-span-2 row-span-1 text-nowrap overflow-hidden">
+                        {restaurant.cuisine.filter((item, index) => index < 3).map(tag => {return(<DealTag key={tag} tag={tag}/>)})}
                     </div>
                 </div>
                 <div id="information" className="hidden text-xs py-2 px-5 flex-col">
@@ -58,7 +58,7 @@ export default function RestaurantCard({restaurant, dispatch}){
                     <div className="col-span-1 row-span-1 text-2xl font-medium my-2 text-nowrap">{restaurant.name}</div>
                     <div className="col-span-1 row-span-1"></div>
                     <div className="col-span-2 row-span-1">
-                        {restaurant.deal[0].tags.map(tag => {return(<DealTag key={tag} tag={tag}/>)})}
+                        {restaurant.cuisine.map(tag => {return(<DealTag key={tag} tag={tag}/>)})}
                     </div>
                 </div>
                 <div id="information" className="flex text-base px-5 flex-col">
