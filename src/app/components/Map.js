@@ -1,10 +1,9 @@
 'use client'
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useSelector} from 'react-redux';
-import { setSelectedRestaurant, setMapInstance } from '../../store/slices/mapSlice.js';
+import { setSelectedRestaurant } from '../../store/slices/mapSlice.js';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXZlbmR1bSIsImEiOiJjbHp6aHBkNjExZ21xMmtwZ25naWR2YTBhIn0.G1J-yLq_atEuOH51EJJ9ug';
@@ -38,8 +37,6 @@ export default function MapComponent({dispatch, currentRestaurantArray }) {
                     
                 });
         });
-
-        dispatch(setMapInstance(mapInstance));
 
         return () => mapInstance.remove();
     }, []);
