@@ -5,7 +5,6 @@ import Map from "./components/Map.js";
 import NavigationBar from "./components/NavigationBar.js";
 import RestaurantsPanel from "./components/RestaurantsPanel.js";
 import RestaurantCard from './restaurantCard/RestaurantCard.js';
-import Search from "./components/Search.js"
 import restaurantData from './assets/ restaurant.json';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,9 +32,6 @@ export default function Home() {
 
 
         <Map dispatch={dispatch}/>
-        <div className="absolute top-6 z-10 left-1/2 transform -translate-x-1/2">
-        <Search/> 
-        </div>   
       
         {selectedRestaurantId ? <div className="absolute top-28 z-40 left-1/2 transform -translate-x-1/2"> <RestaurantCard  restaurant={restaurantData.restaurants[selectedRestaurantId]} dispatch={dispatch}/></div> 
         : 
