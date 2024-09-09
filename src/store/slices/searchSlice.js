@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  selectedLabels: []
+  selectedLabels: [],
+  searchFilterOn: false,
 };
 
 const searchSlice = createSlice({
@@ -18,8 +19,14 @@ const searchSlice = createSlice({
           state.selectedLabels.push(label);
         }
       },
+    setSearchFilterOn: (state) => {
+        state.searchFilterOn = true;
+    },
+    setSearchFilterOff: (state) => {
+        state.searchFilterOn = false;
+    }
  },
 });
 
-export const { toggleSearchLabel } = searchSlice.actions;
+export const { toggleSearchLabel, setSearchFilterOn, setSearchFilterOff } = searchSlice.actions;
 export default searchSlice.reducer;
