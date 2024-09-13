@@ -81,8 +81,50 @@ export default function RestaurantCard({restaurant, dispatch}){
     function DealCard(){
         return( 
             <div id={restaurant.id} className="relative flex-none flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
-                    <p>Deal time</p>
-            </div>
+
+                <div id="information" className="flex text-base px-5 flex-col items-center">
+               
+                <div className="flex gap-1 flex-col items-center m-8 rounded-lg h-[25rem] w-[80%]">
+                    <div className="flex items-center justify-center h-[20%] w-full bg-lime-300">
+                        <h2 className="text-xl font-bold ">Your Order</h2>
+                    </div>
+                    <div className="flex items-center justify-between h-[50%] w-full bg-lime-200 ">
+                        <p className="ml-16">Free Coffee Deal</p>
+                        <p className="mr-16">$23.00</p>
+                    </div>
+                    <div className="flex items-center justify-between h-[30%] w-full bg-lime-200 text-xl font-bold">
+                        <p className="ml-16">Total</p>
+                        <p className="mr-16">$23.00</p>
+                    </div>
+                </div>
+
+                <div className="flex gap-1 flex-col items-center m-8 rounded-lg h-[36rem] w-[80%]">
+                    <div className="flex items-center justify-center h-[15%] w-full bg-lime-300">
+                        <h2 className="text-xl font-bold">Your Details</h2>
+                    </div>
+                    <div className="flex items-center justify-between h-[85%] w-full bg-lime-200 ">
+                     
+                    </div>
+           
+                </div>
+
+                <div className="flex gap-1 flex-col items-center m-8 rounded-lg h-[25rem] w-[80%]">
+                    <div className="flex items-center justify-center h-[25%] w-full bg-lime-300">
+                        <h2 className="text-xl font-bold ">Payment</h2>
+                    </div>
+                    <div className="flex items-center justify-between h-[75%] w-full bg-lime-200 ">
+                     
+                    </div>
+           
+                </div>
+
+                
+            
+
+
+                </div>
+                
+        </div>
             )
     };
     
