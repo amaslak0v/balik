@@ -56,7 +56,7 @@ export default function RestaurantCard({restaurant, dispatch}){
 
     function SelectedCard(){
         return( 
-           <> {dealSelected? <DealCard/> : 
+           <> {dealSelected? <DealProcessingCard/> : 
         <div id={restaurant.id} className="relative flex-none flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
                 <img className="h-80 w-full object-cover"  src={restaurant.images} alt={restaurant.name}/>
                 <div className="absolute top-7 right-0 z-30 bg-blue-500 rounded-l-xl w-auto px-3 text-center text-lg text-white text-semibold py-3">{restaurant.deal[0].marker}     {restaurant.deal[0].shortDescription}!</div>
@@ -173,6 +173,20 @@ export default function RestaurantCard({restaurant, dispatch}){
         </div>
             )
     };
+
+    function DealProcessingCard(){
+        return(
+            <div id={restaurant.id} className="relative flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
+            <div className="flex items-center justify-center min-h-20 w-full bg-black text-3xl">
+                <h2 className="text-white">Deal Processing</h2>
+            </div>
+            <div className="flex justify-center items-center">
+                <div className="animate-spin rounded-full h-60 w-60 border-t-2 border-b-8 mt-28 border-lime-500"></div>
+            </div>
+            <div id="information" className="flex text-base px-5 flex-col items-center"></div></div>
+
+        )
+    }
 
     function DealConfirmationCard(){
         return(
