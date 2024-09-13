@@ -12,8 +12,19 @@ const dealSlice = createSlice({
   reducers: {
     toggleDealSelected: (state) => {
       state.dealSelected = !state.dealSelected;
-    } },
+    },
+    toggleDealProcessing: (state) => {
+        state.dealProcessing = !state.dealProcessing;
+      },
+    toggleDealConfirmed: (state) => {
+      state.dealConfirmed = !state.dealConfirmed;
+    },
+    resetDealCards: (state) => {
+        state.dealSelected = false;
+        state.dealProcessing = false;
+        state.dealConfirmed = false;
+      }   },
 });
 
-export const { toggleDealSelected } = dealSlice.actions;
+export const { resetDealCards, toggleDealSelected, toggleDealProcessing, toggleDealConfirmed } = dealSlice.actions;
 export default dealSlice.reducer;
