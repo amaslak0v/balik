@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector} from 'react-redux';
 import { setSelectedRestaurant } from '../../store/slices/mapSlice.js';
-import { toggleDealSelected, toggleDealProcessing, toggleDealConfirmed } from '../../store/slices/dealSlice.js';
+import { resetDealCards, toggleDealSelected, toggleDealProcessing, toggleDealConfirmed } from '../../store/slices/dealSlice.js';
 
 
 
@@ -36,7 +36,12 @@ export default function RestaurantCard({restaurant, dispatch}){
             dispatch(toggleDealProcessing());
             dispatch(toggleDealConfirmed());
           }, 2000);
-    }
+    };
+
+    function handleAddToWallet(){
+        dispatch(resetDealCards());
+        dispatch(setSelectedRestaurant(null));
+    };
 
     function RegularCard(){
 
@@ -216,8 +221,22 @@ export default function RestaurantCard({restaurant, dispatch}){
             <div className="flex items-center justify-center min-h-20 w-full bg-black text-3xl">
                 <h2 className="text-white">Order Confirmed</h2>
             </div>
-            <div id="information" className="flex text-base px-5 flex-col items-center"></div></div>
-
+            <div className="flex text-base px-5 flex-col items-center justify-center">
+                <p className="mt-3 italic">This coupon has been sent to your email address</p>
+                <div className="flex flex-col items-center justify-center p-12 h-[23rem] w-[23rem] bg-blue-300 mt-5 border-4 border-dashed border-black">
+                    <h2 className="font-bold text-2xl">Your Deal Coupon</h2>
+                    <h3 className="m-10 text-lg">@ {restaurant.name}</h3>
+                    <h3 className="mb-10 text-lg text-center">{restaurant.deal[0].description}</h3>
+                    <h2 className="font-bold text-xl">Deal ID: 12341789</h2>
+                    <h2 className="font-bold text-xl">Deal Secret: sun fish island</h2>
+                </div>
+                <button onClick={handleAddToWallet} className="bg-blue-600 text-white font-bold rounded-lg mt-4 p-3 hover:bg-lime-600 transition-colors">
+                        Add to Deals Wallet
+                    </button>
+            </div>
+            
+            </div>
+            
         )
     }
     
