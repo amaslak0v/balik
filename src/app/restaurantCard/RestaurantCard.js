@@ -27,6 +27,10 @@ export default function RestaurantCard({restaurant, dispatch}){
 
     function handleGetDeal(){
         dispatch(toggleDealSelected());
+    };
+
+    function handlePurchase(){
+        dispatch
     }
 
     function RegularCard(){
@@ -70,7 +74,7 @@ export default function RestaurantCard({restaurant, dispatch}){
                 <p className="text-base mt-2">{restaurant.deal[0].description}</p>
                 <p className="text-base mt-2">{restaurant.deal[0].price}</p>
                 <img className="w-64 h-auto object-cover mt-3 mb-5" src={restaurant.deal[0].photoUrl}/>
-                <button onClick={handleGetDeal} className="animate-ping text-xl font-semibold mb-5 bg-lime-500 text-center p-2 w-auto text-white rounded-3xl">Get Deal!</button>
+                <button onClick={handleGetDeal} className="text-xl font-semibold mb-5 bg-lime-500 text-center p-2 w-auto text-white rounded-3xl">Get Deal!</button>
                 </div>
                 </div>
                 
@@ -80,21 +84,26 @@ export default function RestaurantCard({restaurant, dispatch}){
 
     function DealCard(){
         return( 
-            <div id={restaurant.id} className="relative flex-none flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
-
+            <div id={restaurant.id} className="relative flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
+                <div className="flex items-center justify-center min-h-20 w-full bg-black text-3xl">
+                    <h2 className="text-white">Purchase Deal</h2>
+                </div>
                 <div id="information" className="flex text-base px-5 flex-col items-center">
                
                 <div className="flex gap-1 flex-col items-center m-8 rounded-lg h-[25rem] w-[80%]">
                     <div className="flex items-center justify-center h-[20%] w-full bg-lime-300">
                         <h2 className="text-xl font-bold ">Your Order</h2>
                     </div>
-                    <div className="flex items-center justify-between h-[50%] w-full bg-lime-200 ">
-                        <p className="ml-16">Free Coffee Deal</p>
-                        <p className="mr-16">$23.00</p>
+                    <div className="flex items-center justify-left h-[15%] w-full bg-lime-200 ">
+                        <p className="ml-16">@ {restaurant.name}</p>
+                    </div>
+                    <div className="flex items-center justify-between h-[35%] w-full bg-lime-200 ">
+                        <p className="ml-16">{restaurant.deal[0].description}</p>
+                        <p className="mr-16">{restaurant.deal[0].price}.00</p>
                     </div>
                     <div className="flex items-center justify-between h-[30%] w-full bg-lime-200 text-xl font-bold">
                         <p className="ml-16">Total</p>
-                        <p className="mr-16">$23.00</p>
+                        <p className="mr-16">{restaurant.deal[0].price}.00</p>
                     </div>
                 </div>
 
@@ -102,31 +111,79 @@ export default function RestaurantCard({restaurant, dispatch}){
                     <div className="flex items-center justify-center h-[15%] w-full bg-lime-300">
                         <h2 className="text-xl font-bold">Your Details</h2>
                     </div>
-                    <div className="flex items-center justify-between h-[85%] w-full bg-lime-200 ">
-                     
+                    <div className="flex items-center justify-between h-[85%] w-full bg-lime-200 px-8">
+                        <form className="flex flex-col gap-4 w-full p-4">
+                        <div className="flex flex-col">
+                            <label className="text-sm font-semibold mb-1" htmlFor="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="Enter your first name"/>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="text-sm font-semibold mb-1" htmlFor="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="Enter your surname"/>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="text-sm font-semibold mb-1" htmlFor="email">Email</label>
+                            <input type="email" id="email" name="email" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="Enter your email"/>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="text-sm font-semibold mb-1" htmlFor="mobile">Mobile</label>
+                            <input type="tel" id="mobile" name="mobile" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="Enter your mobile number"/>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="text-sm font-semibold mb-1" htmlFor="promoCode">Promo Code</label>
+                            <input type="text" id="promoCode" name="promoCode" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="Enter your promo code"/>
+                        </div>
+                        
+                        </form>
                     </div>
-           
                 </div>
 
                 <div className="flex gap-1 flex-col items-center m-8 rounded-lg h-[25rem] w-[80%]">
-                    <div className="flex items-center justify-center h-[25%] w-full bg-lime-300">
-                        <h2 className="text-xl font-bold ">Payment</h2>
-                    </div>
-                    <div className="flex items-center justify-between h-[75%] w-full bg-lime-200 ">
-                     
-                    </div>
-           
+                <div className="flex items-center justify-center h-[15%] w-full bg-lime-300">
+                    <h2 className="text-xl font-bold">Payment</h2>
                 </div>
-
-                
-            
-
-
+                <div className="flex items-center justify-center h-[85%] w-full bg-lime-200">
+                    <form className="flex flex-col gap-4 w-full px-8 py-4">
+                    <div className="flex flex-col">
+                        <label className="text-sm font-semibold mb-1" htmlFor="cardholderName">Cardholder Name</label>
+                        <input type="text" id="cardholderName" name="cardholderName" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="E.g. John Doe" />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-sm font-semibold mb-1" htmlFor="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="1234 5678 9012 3456" />
+                    </div>
+                    <div className="flex gap-4">
+                        <div className="flex flex-col w-1/2">
+                        <label className="text-sm font-semibold mb-1" htmlFor="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" name="expiryDate" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="MM/YY" />
+                        </div>
+                        <div className="flex flex-col w-1/2">
+                        <label className="text-sm font-semibold mb-1" htmlFor="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" className="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-lime-500 outline-none" placeholder="123" />
+                        </div>
+                    </div>
+                    <button onClick={handlePurchase} className="bg-black text-white font-bold py-3 rounded-lg hover:bg-lime-600 transition-colors">
+                        Pay and Process Order
+                    </button>
+                    </form>
+                </div>
+                </div>
                 </div>
                 
         </div>
             )
     };
+
+    function DealConfirmationCard(){
+        return(
+            <div id={restaurant.id} className="relative flex flex-col bg-slate-100 rounded-3xl mx-2 overflow-y-scroll no-scrollbar shadow-xl mb-2 transition-all duration-300 h-[36rem] w-[44rem] click:translate-x-full">
+            <div className="flex items-center justify-center min-h-20 w-full bg-black text-3xl">
+                <h2 className="text-white">Order Confirmed</h2>
+            </div>
+            <div id="information" className="flex text-base px-5 flex-col items-center"></div></div>
+
+        )
+    }
     
 
 
@@ -136,4 +193,5 @@ export default function RestaurantCard({restaurant, dispatch}){
         </>
     );
 };
+
 

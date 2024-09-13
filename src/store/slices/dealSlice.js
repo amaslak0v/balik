@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  dealSelected: false
+  dealSelected: false,
+  paymentProcessing: false,
+  paymentConfirmed: false,
 };
 
 const dealSlice = createSlice({
