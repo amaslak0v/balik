@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedRestaurant } from '../store/slices/mapSlice.js';
 import  { setSearchFilterOn, setSearchFilterOff } from '../store/slices/searchSlice'
+import { toggleDealSelected } from '../store/slices/dealSlice.js';
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
 
   function handleClose() {
     dispatch(setSelectedRestaurant(null));
+    dispatch(toggleDealSelected());
   };
   
     const searchFilterOn = useSelector((state) => state.searchData.searchFilterOn)
